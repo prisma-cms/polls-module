@@ -1,12 +1,14 @@
 
 import prismaGenerateSchema from "@prisma-cms/prisma-schema";
 
+import UserModule from "@prisma-cms/user-module";
+
 import CoreModule from "../../../";
- 
+
 
 import path from 'path';
 import chalk from "chalk";
- 
+
 
 export const generateSchema = function (schemaType) {
 
@@ -18,7 +20,9 @@ export const generateSchema = function (schemaType) {
     const basedir = path.join(path.dirname(moduleURL.pathname), "/../../../", "schema/")
 
 
-    result = prismaGenerateSchema(schemaType, new CoreModule(), basedir);
+    result = prismaGenerateSchema(schemaType, new CoreModule({
+      modules: [UserModule],
+    }), basedir);
   }
   catch (error) {
 

@@ -1,0 +1,24 @@
+
+"""
+  Опрос
+"""
+type Poll {
+  id: ID! @unique
+  code: ID @unique
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  name: String
+  description: String
+
+  """
+    Список вопросов
+  """
+  Questions: [PollQuestion!]! @relation(name: "PollQuestions")
+
+  """
+    Прохождения опроса
+  """
+  Quests: [PollQuest!]! @relation(name: "PollQuests")
+
+  CreatedBy: User
+}

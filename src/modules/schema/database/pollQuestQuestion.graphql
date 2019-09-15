@@ -1,0 +1,21 @@
+
+"""
+  Ответы на вопрос в рамках прохождения квеста
+"""
+type PollQuestQuestion {
+  id: ID! @unique
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  Quest: PollQuest @relation(name: "PollQuestQuestions")
+  CreatedBy: User
+
+  """
+    Вопрос, на который создаются ответы
+  """
+  Question: PollQuestQuestion
+
+  """
+    Данные пользователем ответы
+  """
+  Answers: [PollQuestAnswer!]! @relation(name: "PollQuestQuestionAnswers")
+}

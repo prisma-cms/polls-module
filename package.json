@@ -1,7 +1,7 @@
 {
-  "name": "@prisma-cms/module-bilerplate",
-  "description": "Module boilerplate for @prisma-cms/server",
-  "version": "1.1.5",
+  "name": "@prisma-cms/polls-module",
+  "description": "Polls module for @prisma-cms",
+  "version": "1.2.0",
   "main": "src/",
   "files": [
     "src"
@@ -20,6 +20,8 @@
   },
   "devDependencies": {
     "@prisma-cms/server": "latest",
+    "@prisma-cms/user-module": "latest",
+    "@prisma-cms/sms-module": "latest",
     "expect": "^23.6.0",
     "graphql": "*",
     "mocha": "^5.2.0",
@@ -36,14 +38,7 @@
   "keywords": [
     "prisma-cms",
     "server",
-    "boilerplate"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/prisma-cms/module-boilerplate.git"
-  },
-  "bugs": {
-    "url": "https://github.com/prisma-cms/module-boilerplate/issues"
-  },
-  "homepage": "https://github.com/prisma-cms/module-boilerplate#readme"
+    "boilerplate",
+    "polls"
+  ]
 }

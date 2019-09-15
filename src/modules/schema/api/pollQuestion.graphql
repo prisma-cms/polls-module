@@ -1,0 +1,12 @@
+
+type Mutation {
+  createPollQuestionProcessor(data: PollQuestionCreateInput!): PollQuestionResponse!
+  updatePollQuestionProcessor(data: PollQuestionUpdateInput!, where: PollQuestionWhereUniqueInput!): PollQuestionResponse!
+}
+
+type PollQuestionResponse {
+  success: Boolean!
+  message: String
+  errors: [Error!]!
+  data: PollQuestion
+}

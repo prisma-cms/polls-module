@@ -1,0 +1,48 @@
+
+"""
+  Ответ на вопрос
+"""
+type PollAnswer {
+  id: ID! @unique
+  createdAt: DateTime!
+  updatedAt: DateTime!
+
+  rank: Int @default (value: 0)
+
+  """Ответ"""
+  name: String
+
+  """
+    Тип ответа
+  """
+  type: PollAnswerType @default(value: Checkbox)
+
+  """
+    Допольнительные данные ответа
+  """
+  data: Json
+
+  """
+    Данные обязательны к заполнению
+  """
+  data_required: Boolean
+
+  """
+    Вопрос
+  """
+  Question: PollQuestion @relation(name: "PollAnswers")
+
+  CreatedBy: User
+}
+
+enum PollAnswerType {
+  
+  """Одиночный выбор"""
+  Checkbox
+  
+  """Текстовое поле"""
+  Textarea
+
+  """Диапазон значений"""
+  Range
+}

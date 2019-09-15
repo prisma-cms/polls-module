@@ -1,0 +1,22 @@
+
+"""
+  Прохождение опроса пользователем
+"""
+type PollQuest {
+  id: ID! @unique
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  
+  """
+    Опрос
+  """
+  Poll: Poll @relation(name: "PollQuests")
+
+  CreatedBy: User
+  # Answers: [PollQuestAnswer!]! @relation(name: "PollQuestAnswers")
+
+  """
+    Вопросы, на которые даны ответы
+  """
+  Questions: [PollQuestQuestion!]! @relation(name: "PollQuestQuestions")
+}

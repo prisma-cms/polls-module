@@ -5,9 +5,14 @@ import {
   PrismaCmsServer,
 } from "@prisma-cms/server";
 
-import CoreModule from "../";
+import CoreModule, {
+  Modules,
+} from "../";
+
+import UserModule from "@prisma-cms/user-module";
 
 const coreModule = new CoreModule({
+  modules: [UserModule].concat(Modules),
 });
 
 const resolvers = coreModule.getResolvers();

@@ -1,0 +1,39 @@
+
+"""
+  Вопрос опроса
+"""
+type PollQuestion {
+  id: ID! @unique
+  createdAt: DateTime!
+  updatedAt: DateTime!
+
+  rank: Int @default (value: 0)
+
+  """Вопрос"""
+  name: String
+
+  """Текст вопроса"""
+  text: String
+  
+  """
+    Максимальное число ответов. Если не указано, то сколько угодно.
+  """
+  max_answers: Int
+
+  """
+    Минимальное число ответов. Если не указано, то сколько угодно.
+  """
+  min_answers: Int
+
+  """
+    Опрос, в рамках которого задан вопрос
+  """
+  Poll: Poll @relation(name: "PollQuestions")
+
+  """
+    Возможные ответы
+  """
+  Answers: [PollAnswer!]! @relation(name: "PollAnswers")
+
+  CreatedBy: User
+}

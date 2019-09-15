@@ -1,0 +1,29 @@
+
+"""
+  Ответ пользователя
+"""
+type PollQuestAnswer {
+  id: ID! @unique
+  createdAt: DateTime!
+  updatedAt: DateTime!
+
+  # """
+  #   Квест, по которому ответ дается
+  # """
+  # Quest: PollQuest @relation(name: "PollQuestAnswers")
+
+  """
+    Исходный вариант ответа
+  """
+  PollAnswer: PollAnswer @relation(name: "PollQuestAnswerPollAnswer")
+  
+  """
+    Допольнительные данные ответа
+  """
+  data: Json
+
+  """
+    Кем создан ответ
+  """
+  CreatedBy: User
+}
